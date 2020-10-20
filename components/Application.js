@@ -1,21 +1,19 @@
 import React from 'react';
-import places from '../stays.json';
 
-let data = require('../stays.json')
-console.log(data);
+import Header from './Header';
+import Main from './Main';
+import Footer from "./Footer";
 
-function App() {
-  return (
-    <div>
-       {data.map(data => {
-          return (
-          <h2>{data.city}</h2>
-          )
-       })}
-    </div>
-
-
-  )
+class App extends React.Component {
+  render() {
+    return (
+      <>
+        <Header/>
+        <Main/>
+        <Footer/>
+      </>
+    );
+  }
 }
 
 export default App;

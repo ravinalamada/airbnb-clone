@@ -1,14 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './components/Application'
+import App from './components/Application';
 
 class Main extends React.Component {
   render() {
     return (
-      <div className="container">
-        <h1>React movie Search!</h1>
+      <main>
         <App/>
-      </div>
+      </main>
     );
   }
 }
