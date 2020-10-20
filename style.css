@@ -49,6 +49,11 @@ img {
   color: #A9A9A9;
 }
 
+.footer {
+  border-top: 1px solid #A9A9A9;
+  margin-top: 98px;
+}
+
 @media(min-width: 1000px) {
   .container {
     display: flex;
@@ -63,5 +68,9 @@ img {
 
   img {
     height: 269px;
+  }
+
+  .footer {
+    text-align: center;
   }
 }
