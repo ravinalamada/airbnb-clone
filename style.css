@@ -54,6 +54,10 @@ img {
   margin-top: 98px;
 }
 
+option {
+
+}
+
 @media(min-width: 1000px) {
   .container {
     display: flex;
