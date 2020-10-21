@@ -3,7 +3,8 @@
   display: flex;
 }
 
-input {
+input,
+select {
   border-color: transparent;
 }
 
@@ -12,6 +13,11 @@ fieldset,
   background: #FFFFFF;
   box-shadow: 0px 1px 6px rgba(0, 0, 0, 0.1);
   border-radius: 16px;
+}
+
+.addGuest {
+  display: flex;
+  flex-direction: column;
 }
 
 .wrapper {
@@ -27,6 +33,7 @@ fieldset,
 
 img {
   width: 100%;
+  height: 300px;
   border-radius: 24px;
 }
 
@@ -54,24 +61,23 @@ img {
   margin-top: 98px;
 }
 
-option {
-
+.inner-modal {
+  background-color: turquoise;
+  width: 100vw;
+  height: 50vh;
+  position: fixed;
 }
 
-@media(min-width: 1000px) {
+@media(min-width: 800px) {
   .container {
     display: flex;
     justify-content: space-between;
-    align-items: baseline;
+    align-items: center;
     flex-wrap: wrap;
   }
 
   .cards {
     flex-basis: 30%;
-  }
-
-  img {
-    height: 269px;
   }
 
   .footer {

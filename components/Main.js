@@ -1,39 +1,49 @@
-import React from 'react';
+import React, { useLayoutEffect, useState } from 'react';
 import places from '../stays.json';
+import Form from "./Form";
+import Header from "./Header";
+import Stays from "./Stays";
 
 let data = require('../stays.json');
-
 function Main() {
+  const [stay, setStay] = useState('');
+  const [Guests, setGuests] = useState('');
+  const [Results, setResults] = useState([]);
+
+  function handleChange(e) {
+    setStay(e.target.value)
+    setResults(data.filter(stay => {
+      return stay.city.toLocaleLowerCase() === e.target.value.toLocaleLowerCase();
+    }))
+  }
+
+  function handleChangeNum(e) {
+    setGuests(e.target.value)
+    setResults(data.filter(guest => {
+      return guest.maxGuests.toString() === e.target.value;
+    }))
+  }
+
   return (
-    <section>
-      <h2>Stays in Finland</h2>
+    <>
+      <section className="container">
+        <Header />
+        <Form handleChange={handleChange}
+              number={handleChangeNum}
+              inputValue={Guests}
+        />
+      </section>
       <div className="container">
-        {data.map(data => {
-          return (
-            <div key={data.title} className="cards">
-              <img src={data.photo}></img>
-              <div className="wrapper">
-                <div className="contents">
-                {data.superHost === true && <p><a href="/super-host" className="superHost">Super Host</a></p>}
-                  <p className="desc">{data.type}</p>
-                  <p className="desc">.{data.beds} beds</p>
-                </div>
-                <div className="wrapper">
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="black" width="18px" height="18px">
-                    <path d="M0 0h24v24H0z" fill="none" />
-                    <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" fill="#EB5757" />
-                  </svg>
-                  <span className="rating">{data.rating}</span>
-                </div>
-              </div>
-              <p>{data.title}</p>
-            </div>
-          )
-        })}
+        <h2>Stays in Finland</h2>
+        <p>+12stays</p>
       </div>
-    </section>
-
-
+      <div className="container">
+        {stay || Guests
+        ? Results.map(guest => <Stays key={guest.title} {...guest}/>)
+        : data.map(data => <Stays key={data.title} {...data}/>)
+        }
+      </div>
+    </>
   )
 }
 

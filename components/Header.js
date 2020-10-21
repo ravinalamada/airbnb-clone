@@ -3,7 +3,6 @@ import Form from "./Form";
 
 function Header() {
   return (
-    <section className="container">
       <header>
         <h1>
           <a href="/airnbnb">
@@ -14,8 +13,6 @@ function Header() {
           </a>
         </h1>
       </header>
-      <Form />
-    </section>
   )
 }
 
