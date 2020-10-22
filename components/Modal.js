@@ -1,9 +1,12 @@
-import React from 'react';
+import React, { useState } from 'react';
 
-function Modal() {
+function Modal(props) {
   return (
     <div className="outter-modal">
-      <div className="inner-modal"></div>
+      <div className="inner-modal">
+        {props.content}
+        {props.buttons}
+      </div>
     </div>
   )
 }
